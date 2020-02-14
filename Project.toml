@@ -4,6 +4,7 @@ authors = ["Mike J Innes <mike.j.innes@gmail.com>"]
 version = "0.1.0"
 
 [deps]
+FunctionalCollections = "de31a74c-ac4f-5751-b3fd-e18cd04993ca"
 IRTools = "7869d1d1-7146-5819-86e3-90919afe41df"
 MacroTools = "1914dd2f-81c6-5fcd-8719-6d5c9610ff09"
 

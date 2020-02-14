@@ -82,7 +82,8 @@ cps(k′, ::typeof(cps), k, args...) = cps(x -> cps(k′, k, x), args...)
 for f in :[getfield, typeof, Core.apply_type, typeassert, (===), ifelse,
            Core.sizeof, Core.arrayset, tuple, isdefined, fieldtype, nfields,
            isa, Core.arraysize, repr, print, println, Base.vect, Broadcast.broadcasted,
-           Broadcast.materialize].args
+           Broadcast.materialize, Core.Compiler.return_type, Base.union!, Base.getindex, Base.haskey,
+           Base.pop!, Base.setdiff].args
   @eval cps(k, ::typeof($f), args...) = k($f(args...))
 end
 
