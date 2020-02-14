@@ -1,3 +1,9 @@
+module List
+
+using ..Effects
+
+export list, choose, backtrack
+
 struct Choose
   options
 end
@@ -22,3 +28,5 @@ function _list(f)
 end
 
 list(f) = _list(() -> [f()])
+
+end

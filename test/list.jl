@@ -1,5 +1,4 @@
-using Effects, Test
-using Effects: list, choose, backtrack
+using Effects.List, Test
 
 @test list() do
   x = choose(1:10)
