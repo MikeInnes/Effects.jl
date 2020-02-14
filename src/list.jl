@@ -20,9 +20,7 @@ function _list(f)
     f()
     (e::Union{Choose,Backtrack}, k) -> begin
       e isa Backtrack && return []
-      flatmap(e.options) do x
-        _list(() -> k(x))
-      end
+      flatmap(k, e.options)
     end
   end
 end
