@@ -2,5 +2,9 @@ using Effects
 using Test
 
 @testset "Effects.jl" begin
-    # Write your own tests here.
+
+@testset "List" begin
+  include("list.jl")
+end
+
 end

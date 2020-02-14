@@ -1,5 +1,8 @@
 module Effects
 
-greet() = print("Hello World!")
+include("cps.jl")
+include("handler.jl")
+
+include("list.jl")
 
 end # module

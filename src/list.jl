@@ -1,0 +1,24 @@
+struct Choose
+  options
+end
+
+struct Backtrack end
+
+choose(xs) = effect(Choose(xs))
+backtrack() = effect(Backtrack())
+
+flatmap(f, xs) = reduce(vcat, map(f, xs))
+
+function _list(f)
+  @effect begin
+    f()
+    (e::Union{Choose,Backtrack}, k) -> begin
+      e isa Backtrack && return []
+      flatmap(e.options) do x
+        _list(() -> k(x))
+      end
+    end
+  end
+end
+
+list(f) = _list(() -> [f()])
