@@ -76,6 +76,7 @@ cps(k, f::Func, args...) = cps_lambda(f.f, k)(args...)
 
 cps(k, f::Core.IntrinsicFunction, args...) = k(f(args...))
 cps(k, ::typeof(Core._apply), f, args...) = Core._apply(cps, (k, f), args...)
+cps(k, ::typeof(Core._apply_iterate), iterate, f, args...) = Core._apply_iterate(iterate, cps, (k, f), args...)
 cps(k, ::typeof(cond), c, t, f) = c ? cps(k, t) : cps(k, f)
 cps(k′, ::typeof(cps), k, args...) = cps(x -> cps(k′, k, x), args...)
 
